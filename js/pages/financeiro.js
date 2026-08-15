@@ -50,12 +50,25 @@ async function init() {
         document.getElementById('f-periodo-fim').textContent = formatDate(data.periodo_fim);
 
         document.getElementById('f-servicos').textContent = formatBRL(data.total_servicos);
+        const elCusto = document.getElementById('f-custo-servicos');
+        if (elCusto) elCusto.textContent = formatBRL(data.custo_servicos);
+        const elLucroServ = document.getElementById('f-lucro-servicos');
+        if (elLucroServ) elLucroServ.textContent = formatBRL(data.lucro_servicos);
         document.getElementById('f-qtd-os').textContent = data.quantidade_os;
         document.getElementById('f-ticket-servico').textContent = formatBRL(data.ticket_medio_servico);
 
         document.getElementById('f-vendas').textContent = formatBRL(data.total_vendas);
+        const elTrocasCed = document.getElementById('f-trocas-cedidas');
+        if (elTrocasCed) elTrocasCed.textContent = formatBRL(data.valor_trocas_cedidas);
+        const elRecLiq = document.getElementById('f-receita-liquida-vendas');
+        if (elRecLiq) elRecLiq.textContent = formatBRL(data.receita_liquida_vendas);
         document.getElementById('f-qtd-vendas').textContent = data.quantidade_vendas;
         document.getElementById('f-ticket-venda').textContent = formatBRL(data.ticket_medio_venda);
+
+        const elTrocasRec = document.getElementById('f-trocas-recebidas');
+        if (elTrocasRec) elTrocasRec.textContent = formatBRL(data.valor_trocas_recebidas);
+        const elQtdTrocas = document.getElementById('f-qtd-trocas');
+        if (elQtdTrocas) elQtdTrocas.textContent = data.quantidade_trocas ?? 0;
 
         if (Array.isArray(data.formas_pagamento)) {
           const pix = data.formas_pagamento.find(fp => fp.forma_pagamento === 'PIX')?.total || 0;
@@ -71,6 +84,8 @@ async function init() {
         document.getElementById('f-qtd-perdas').textContent = data.quantidade_perdas;
 
         document.getElementById('f-bruto').textContent = formatBRL(data.faturamento_bruto);
+        const elLucroBruto = document.getElementById('f-lucro-bruto');
+        if (elLucroBruto) elLucroBruto.textContent = formatBRL(data.lucro_bruto);
         document.getElementById('f-despesas').textContent = formatBRL(data.total_despesas);
         document.getElementById('f-margem').textContent = `${(data.margem_lucro || 0).toFixed(2)}%`;
         document.getElementById('f-lucro').textContent = formatBRL(data.lucro_liquido);

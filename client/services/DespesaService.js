@@ -16,15 +16,17 @@ class DespesaServiceClass extends HttpClient {
   }
 
   /**
-   * Cria um novo registro de despesa incluindo o empresa_id do token
+   * Cria um novo registro de despesa incluindo o empresa_id e usuario_id do token
    * @param {Object} payload
    */
   async criar(payload) {
     const empresaId = this.getEmpresaId();
+    const usuarioId = this.getUsuarioId();
 
     const body = {
       ...payload,
-      empresa_id: empresaId || payload.empresa_id || payload.empresaId
+      empresa_id: empresaId || payload.empresa_id || payload.empresaId,
+      usuario_id: usuarioId != null ? Number(usuarioId) : (payload.usuario_id ?? payload.usuarioId ?? null)
     };
 
     const response = await this.post(ENDPOINTS.EXPENSES.BASE, body);
@@ -56,6 +58,5 @@ class DespesaServiceClass extends HttpClient {
   }
 }
 
-// Instancia a classe alterada e exporta
 export const DespesaService = new DespesaServiceClass();
 export default DespesaService;
