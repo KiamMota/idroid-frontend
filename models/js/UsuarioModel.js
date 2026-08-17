@@ -1,7 +1,6 @@
 export class Usuario {
     constructor(data = {}) {
         this.id = Number(data.id) || 0;
-        this.empresa_id = Number(data.empresa_id) || 0;
         this.email = String(data.email ?? "").trim().toLowerCase();
         this.nome = String(data.nome ?? "").trim();
         this.senha = data.senha ?? "";

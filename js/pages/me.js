@@ -17,7 +17,6 @@ async function init() {
   document.getElementById('user-nome').textContent = user.nome || '—';
   document.getElementById('user-email').textContent = user.email || '—';
   document.getElementById('user-id').textContent = user.id ?? '—';
-  document.getElementById('user-empresa').textContent = user.empresa_id ?? '—';
   document.getElementById('user-token').textContent = token ? token.slice(0, 40) + '…' : '—';
   document.getElementById('avatar').textContent = (user.nome || '?').charAt(0).toUpperCase();
 
@@ -30,7 +29,6 @@ async function init() {
         document.getElementById('user-nome').textContent = u.nome || user.nome || '—';
         document.getElementById('user-email').textContent = u.email || user.email || '—';
         document.getElementById('user-id').textContent = u.id ?? user.id ?? '—';
-        document.getElementById('user-empresa').textContent = u.empresa_id ?? user.empresa_id ?? '—';
         document.getElementById('avatar').textContent = (u.nome || user.nome || '?').charAt(0).toUpperCase();
       }
     } catch {

@@ -4,7 +4,6 @@ export class Despesa {
    */
   constructor(data = {}) {
     this.id = Number(data.id || 0);
-    this.empresa_id = Number(data.empresa_id || data.empresaId || 0);
     this.usuario_id = data.usuario_id != null || data.usuarioId != null
       ? Number(data.usuario_id ?? data.usuarioId)
       : null;

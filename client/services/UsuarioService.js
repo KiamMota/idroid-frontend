@@ -4,8 +4,8 @@ import { Usuario } from "../models/UsuarioModel.js";
 
 class UserServiceClass extends HttpClient {
   async create(params) {
-    const { empresa_id, email, nome, senha } = params;
-    const response = await this.post(ENDPOINTS.USERS.BASE, { empresa_id, email, nome, senha });
+    const { email, nome, senha } = params;
+    const response = await this.post(ENDPOINTS.USERS.BASE, { email, nome, senha });
     if (response.success && response.data) {
       response.data = new Usuario(response.data);
     }

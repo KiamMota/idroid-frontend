@@ -13,9 +13,11 @@ class AuthServiceClass extends HttpClient {
     const model = new LoginRequest({ email, senha });
     const response = await this.post(ENDPOINTS.AUTH.LOGIN, model);
 
+    // Verifique se o response.data possui a propriedade .token
     if (response.success && response.data) {
-      this.setToken(response.data);
-      // Toast de sucesso fica a cargo da página de login (evita duplicata)
+      // Se response.data for o LoginResponse do Go, acesse response.data.token
+      const token = response.data.token || response.data; 
+      this.setToken(token);
     }
 
     return response;

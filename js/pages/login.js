@@ -49,7 +49,6 @@ async function init() {
           id: 1,
           nome: nomeUsuario,
           email,
-          empresa_id: 1,
         });
 
         showToast('Login realizado com sucesso', 'success');

@@ -5,7 +5,6 @@ import { Venda } from "../models/VendaModel.js";
 class SaleServiceClass extends HttpClient {
   async create(params) {
     const body = {
-      empresa_id: Number(params.empresa_id), // <-- ADICIONADO AQUI
       produto_id: Number(params.produto_id),
       quantidade: Number(params.quantidade) || 1,
       tipo_pagamento: params.tipo_pagamento || "PIX",
@@ -23,11 +22,9 @@ class SaleServiceClass extends HttpClient {
 
   /**
    * Cancela uma venda
-   * O backend exige empresa_id, usuario_id (e opcionalmente motivo) no body
    */
   async remove(id, usuarioId, empresaId, motivo = "Cancelamento manual") {
     const body = {
-      empresa_id: Number(empresaId), // <-- ADICIONADO AQUI
       usuario_id: Number(usuarioId),
       motivo: motivo || "Cancelamento manual",
     };

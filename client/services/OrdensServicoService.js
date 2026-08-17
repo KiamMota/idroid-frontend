@@ -16,7 +16,6 @@ class ServiceOrderServiceClass extends HttpClient {
       status: params.status || "ABERTA",
     };
 
-    if (params.empresa_id != null) body.empresa_id = Number(params.empresa_id);
     if (params.telefone != null) body.cliente_telefone = params.telefone;
     if (params.nome_servico != null) body.nome_servico = params.nome_servico;
     if (params.valor != null) body.valor = Number(params.valor);
@@ -50,7 +49,6 @@ class ServiceOrderServiceClass extends HttpClient {
     const body = {};
 
     if (params.usuario_id !== undefined) body.usuario_id = Number(params.usuario_id);
-    if (params.empresa_id !== undefined) body.empresa_id = Number(params.empresa_id);
     if (params.defeito !== undefined) body.defeito = params.defeito;
     if (params.servicos !== undefined) body.servicos = params.servicos;
     if (params.assinatura !== undefined) body.assinatura = params.assinatura;

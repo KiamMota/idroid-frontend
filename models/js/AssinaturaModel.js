@@ -1,7 +1,6 @@
 export class Assinatura {
     constructor(data = {}) {
         this.id = Number(data.id) || 0;
-        this.empresa_id = Number(data.empresa_id) || 0;
         this.valor = Number(data.valor) || 0;
         this.status = String(data.status ?? "").trim().toUpperCase(); // Ex: ATIVA, CANCELADA, PENDENTE, ATRASADA
         this.inicio_em = data.inicio_em ? new Date(data.inicio_em) : null;
@@ -17,9 +16,6 @@ export class Assinatura {
     validar() {
         const erros = [];
 
-        if (!this.empresa_id) {
-            erros.push("A empresa_id é obrigatória.");
-        }
 
         if (this.valor <= 0) {
             erros.push("O valor da assinatura deve ser maior que zero.");
