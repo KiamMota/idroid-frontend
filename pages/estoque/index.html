@@ -17,12 +17,12 @@
   <main class="app-main">
     <div class="tabs" id="est-tabs">
       <button class="tab active" data-tab="produtos">Produtos</button>
-      <button class="tab" data-tab="entrada">Entrada</button>
+      <button class="tab" data-tab="entrada" id="tab-btn-entrada">Entrada</button>
     </div>
 
     <!-- TAB PRODUTOS -->
     <section id="tab-produtos">
-      <!-- Grid de categorias (estilo Home) -->
+      <!-- Grid de categorias -->
       <div class="grid-cards animate-in" id="cat-grid">
         <button class="grid-card" data-categoria="CELULAR">
           <span class="icon">📱</span>
@@ -46,7 +46,7 @@
         </button>
       </div>
 
-      <!-- Lista de produtos da categoria selecionada -->
+      <!-- Lista de produtos -->
       <div id="est-list-header" class="list-header mt-2" style="display:none;">
         <span id="cat-title" class="list-header-title">Produtos</span>
         <button class="btn btn-outline btn-sm" id="btn-voltar-cats">← Categorias</button>
@@ -56,9 +56,14 @@
       </div>
     </section>
 
-    <!-- TAB ENTRADA -->
+    <!-- TAB ENTRADA / EDIÇÃO -->
     <section id="tab-entrada" class="hidden">
       <form id="form-entrada">
+        <h3 id="form-titulo" style="margin-top: 0;">Nova Entrada</h3>
+        
+        <!-- Campo Oculto para o ID na Edição -->
+        <input type="hidden" id="ent-id">
+
         <div class="form-group">
           <label for="ent-nome">Nome / Modelo *</label>
           <input type="text" id="ent-nome" required>
@@ -77,10 +82,17 @@
           <input type="number" id="ent-preco" step="0.01" min="0" inputmode="decimal">
         </div>
         <div class="form-group">
-          <label for="ent-qtd">Quantidade *</label>
-          <input type="number" id="ent-qtd" value="1" min="1" required inputmode="numeric">
+          <label for="ent-qtd">Quantidade / Estoque *</label>
+          <input type="number" id="ent-qtd" value="1" min="0" required inputmode="numeric">
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Registrar Entrada</button>
+
+        <button type="submit" id="btn-salvar-ent" class="btn btn-primary btn-block">Registrar Entrada</button>
+        
+        <!-- Botões de ação para modo de Edição -->
+        <div id="edit-actions" style="display: none; flex-direction: column; gap: 8px; margin-top: 1rem;">
+          <button type="button" id="btn-cancelar-edicao" class="btn btn-outline btn-block">Cancelar Edição</button>
+          <button type="button" id="btn-excluir-produto" class="btn btn-outline btn-block" style="color: #dc3545; border-color: #dc3545;">Excluir Produto</button>
+        </div>
       </form>
     </section>
 
