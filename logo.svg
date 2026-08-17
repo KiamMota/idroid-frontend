@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
-  <!-- Fundo -->
-  <rect width="1000" height="1000" fill="#FFFFFF" />
+
 
   <!-- Forma Laranja Superior -->
   <!-- Utiliza arcos matematicamente precisos para criar o encaixe (gap) perfeitamente uniforme de 24px -->
